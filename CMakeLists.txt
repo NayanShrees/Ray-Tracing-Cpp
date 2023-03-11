@@ -10,19 +10,29 @@ set(TARGET_LIB RayTracingLib)
 set(UNIT_TESTS_TARGET Unit-Tests)
 
 set(SOURCES
+    ${CMAKE_SOURCE_DIR}/src/data_structures/color.cpp
     ${CMAKE_SOURCE_DIR}/src/data_structures/tuples.cpp
+    ${CMAKE_SOURCE_DIR}/src/canvas.cpp
     ${CMAKE_SOURCE_DIR}/src/game.cpp
     ${CMAKE_SOURCE_DIR}/src/main.cpp
 )
 
+set(PPM_FILE "${CMAKE_SOURCE_DIR}/build/output.ppm")
+
 add_executable(${TARGET} ${SOURCES})
 add_library(${TARGET_LIB} STATIC ${SOURCES})
+
+target_compile_definitions(${TARGET} PRIVATE "PPM_FILE=\"${PPM_FILE}\"")
+target_compile_definitions(${TARGET_LIB} PRIVATE "PPM_FILE=\"${PPM_FILE}\"")
 
 target_include_directories(${TARGET} PUBLIC "${CMAKE_SOURCE_DIR}/include/")
 target_include_directories(${TARGET_LIB} PUBLIC "${CMAKE_SOURCE_DIR}/include/")
 
 set(UNIT_TEST_SOURCES
+    # TODO fix ordering
     ${CMAKE_SOURCE_DIR}/tests/unit/data_structures/tuples.cpp
+    ${CMAKE_SOURCE_DIR}/tests/unit/data_structures/color.cpp
+    ${CMAKE_SOURCE_DIR}/tests/unit/canvas.cpp
 )
 
 include(FetchContent)
