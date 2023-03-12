@@ -11,6 +11,7 @@ set(UNIT_TESTS_TARGET Unit-Tests)
 
 set(SOURCES
     ${CMAKE_SOURCE_DIR}/src/data_structures/color.cpp
+    ${CMAKE_SOURCE_DIR}/src/data_structures/matrix.cpp
     ${CMAKE_SOURCE_DIR}/src/data_structures/tuples.cpp
     ${CMAKE_SOURCE_DIR}/src/canvas.cpp
     ${CMAKE_SOURCE_DIR}/src/game.cpp
@@ -33,6 +34,7 @@ set(UNIT_TEST_SOURCES
     ${CMAKE_SOURCE_DIR}/tests/unit/data_structures/tuples.cpp
     ${CMAKE_SOURCE_DIR}/tests/unit/data_structures/color.cpp
     ${CMAKE_SOURCE_DIR}/tests/unit/canvas.cpp
+    ${CMAKE_SOURCE_DIR}/tests/unit/data_structures/matrix.cpp
 )
 
 include(FetchContent)
